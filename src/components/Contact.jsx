@@ -45,7 +45,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="bg-contact py-16">
+    <section id="contact" className="bg-contact py-24">
       <div className="container-x max-w-2xl">
         <SectionTitle eyebrow="Get in touch" title="Contact" />
 

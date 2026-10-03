@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { HiMenuAlt3, HiX } from "react-icons/hi";
-import { navLinks } from "../data.js";
+import { navLinks, profile } from "../data.js";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -22,51 +22,64 @@ export default function Navbar() {
       },
       { rootMargin: "-45% 0px -50% 0px" }
     );
+
     navLinks.forEach(({ id }) => {
       const el = document.getElementById(id);
       if (el) observer.observe(el);
     });
+
     return () => observer.disconnect();
   }, []);
 
-  const handleNavClick = (e, id) => {
-    e.preventDefault();
+  const handleMobileNavClick = (e, id) => {
+    // Close the mobile menu modal
     setOpen(false);
-    setActive(id);
-    window.history.pushState(null, "", `#${id}`);
 
-    setTimeout(() => {
-      const section = document.getElementById(id);
-      if (section) {
-        section.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-        });
-      }
-    }, 200);
+    const element = document.getElementById(id);
+    if (element) {
+      // Small timeout allows the menu state to update without blocking the scroll action
+      setTimeout(() => {
+        element.scrollIntoView({ behavior: "smooth" });
+      }, 50);
+    }
   };
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition ${scrolled || open ? "bg-slate-950/90 shadow-lg backdrop-blur" : "bg-transparent"
+      className={`fixed inset-x-0 top-0 z-50 transition ${scrolled || open
+          ? "bg-slate-950/90 shadow-lg backdrop-blur"
+          : "bg-transparent"
         }`}
     >
       <nav className="container-x flex h-20 items-center justify-between">
-        <a href="#home" className="text-2xl font-extrabold text-white sm:text-3xl">
+        <a
+          href="#home"
+          className="text-2xl font-extrabold text-white sm:text-3xl"
+        >
           Shams
           <span className="text-brand-500">.</span>
         </a>
 
-        {/* Desktop Navigation */}
+        {/* Unchanged Large Screen Navigation */}
         <ul className="hidden items-center gap-2 md:flex">
           {navLinks.map((l) => (
             <li key={l.id}>
               <a
                 href={`#${l.id}`}
-                onClick={(e) => handleNavClick(e, l.id)}
-                className={`block px-6 py-4 text-xl font-semibold transition hover:text-brand-400 ${active === l.id ? "text-brand-400" : "text-slate-300"
+                className={`relative block rounded-full px-5 py-2.5 text-lg font-semibold transition hover:text-brand-400 ${active === l.id ? "text-white" : "text-slate-300"
                   }`}
               >
+                {active === l.id && (
+                  <motion.span
+                    layoutId="nav-pill"
+                    className="absolute inset-0 -z-10 rounded-full bg-brand-500/20 ring-1 ring-brand-500/40"
+                    transition={{
+                      type: "spring",
+                      stiffness: 380,
+                      damping: 30,
+                    }}
+                  />
+                )}
                 {l.label}
               </a>
             </li>
@@ -83,7 +96,6 @@ export default function Navbar() {
         </button>
       </nav>
 
-      {/* Mobile Navigation */}
       <AnimatePresence>
         {open && (
           <motion.ul
@@ -96,7 +108,7 @@ export default function Navbar() {
               <li key={l.id}>
                 <a
                   href={`#${l.id}`}
-                  onClick={(e) => handleNavClick(e, l.id)}
+                  onClick={(e) => handleMobileNavClick(e, l.id)}
                   className={`block px-6 py-4 text-xl font-semibold transition hover:text-brand-400 ${active === l.id ? "text-brand-400" : "text-slate-300"
                     }`}
                 >

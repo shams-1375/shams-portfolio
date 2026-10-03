@@ -34,7 +34,7 @@ function ProjectImage({ src, title }) {
 
 export default function Projects() {
   return (
-    <section id="projects" className="bg-projects pb-24 pt-12">
+    <section id="projects" className="bg-projects py-24">
       <div className="container-x">
         <SectionTitle eyebrow="Things I've built" title="Projects" />
 

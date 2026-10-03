@@ -46,10 +46,8 @@ function RotatingRole() {
 
 export default function Home() {
   return (
-    // reducedMotion="never" makes sure these animations play even if the OS has "reduce motion" on
     <MotionConfig reducedMotion="never">
       <section id="home" className="bg-hero relative flex min-h-screen items-center overflow-hidden pt-20">
-        {/* floating glow blobs */}
         <motion.div
           aria-hidden
           className="pointer-events-none absolute -top-24 right-[-10%] h-[30rem] w-[30rem] rounded-full bg-brand-600/25 blur-3xl"

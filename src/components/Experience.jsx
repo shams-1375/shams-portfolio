@@ -5,7 +5,7 @@ import { experience } from "../data.js";
 
 export default function Experience() {
   return (
-    <section id="experience" className="bg-experience pb-24 pt-24">
+    <section id="experience" className="bg-experience py-24">
       <div className="container-x max-w-5xl">
         <SectionTitle eyebrow="Where I've worked" title="Experience" />
 
@@ -26,7 +26,7 @@ export default function Experience() {
               </p>
 
               <h3 className="text-xl font-bold text-white">
-                {job.role} • {job.company}
+                {job.role} - {job.company}
               </h3>
 
               <p className="text-sm text-slate-500">{job.location}</p>
@@ -45,16 +45,15 @@ export default function Experience() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-12 flex justify-center"
+          className="mt-12 flex justify-center px-4"
         >
           <a
             href="https://drive.google.com/file/d/1UlOkSFTYIcNIA3GCPc1XMpFMW-uK4MuM/view?usp=drive_link"
             target="_blank"
             rel="noreferrer"
-            className="btn-ghost mt-2"
+            className="btn-ghost mt-2 flex w-full items-center justify-center gap-2 text-center text-sm sm:w-auto sm:justify-start sm:text-base"
           >
-            <FaFolderOpen />
-            View Certifications & Recommendations
+            <span>View Certifications & Recommendations</span>
           </a>
         </motion.div>
       </div>
