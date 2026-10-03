@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+body {
+  @apply bg-slate-950 text-slate-200 antialiased;
+}
+
+section {
+  scroll-margin-top: 5rem;
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-brand-600 to-brand-500 px-7 py-3.5 text-base font-semibold text-white shadow-lg shadow-brand-600/30 transition hover:from-brand-500 hover:to-brand-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-400;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-slate-700 bg-slate-900/40 px-7 py-3.5 text-base font-semibold text-slate-200 backdrop-blur transition hover:border-brand-400 hover:text-brand-400;
+  }
+}
+
+/* ---------- Section backgrounds (same slate + violet theme, now with gradients) ---------- */
+
+.bg-hero {
+  background-color: #020617;
+  background-image:
+    radial-gradient(40rem 30rem at 85% 10%, rgba(124, 58, 237, 0.35), transparent 60%),
+    radial-gradient(35rem 28rem at 5% 95%, rgba(99, 102, 241, 0.25), transparent 60%),
+    linear-gradient(rgba(148, 163, 184, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 163, 184, 0.06) 1px, transparent 1px),
+    linear-gradient(135deg, #020617 0%, #1e1b4b 55%, #020617 100%);
+  background-size: auto, auto, 56px 56px, 56px 56px, auto;
+}
+
+.bg-skills {
+  background-color: #020617;
+  background-image:
+    radial-gradient(34rem 26rem at 0% 20%, rgba(124, 58, 237, 0.22), transparent 60%),
+    radial-gradient(30rem 24rem at 100% 90%, rgba(99, 102, 241, 0.18), transparent 60%),
+    linear-gradient(180deg, #020617 0%, #0f172a 50%, #1e1b4b 100%);
+}
+
+.bg-projects {
+  background-color: #1e1b4b;
+  background-image:
+    radial-gradient(36rem 28rem at 100% 15%, rgba(139, 92, 246, 0.25), transparent 60%),
+    radial-gradient(30rem 24rem at 0% 85%, rgba(79, 70, 229, 0.2), transparent 60%),
+    linear-gradient(180deg, #1e1b4b 0%, #0f172a 45%, #020617 100%);
+}
+
+.bg-experience {
+  background-color: #020617;
+  background-image:
+    radial-gradient(34rem 26rem at 0% 10%, rgba(124, 58, 237, 0.2), transparent 60%),
+    radial-gradient(30rem 24rem at 100% 70%, rgba(99, 102, 241, 0.18), transparent 60%),
+    linear-gradient(180deg, #020617 0%, #0f172a 55%, #1e1b4b 100%);
+}
+
+.bg-contact {
+  background-color: #1e1b4b;
+  background-image:
+    radial-gradient(38rem 28rem at 50% 0%, rgba(139, 92, 246, 0.28), transparent 60%),
+    linear-gradient(180deg, #1e1b4b 0%, #0f172a 60%, #020617 100%);
+}
+
+.bg-footer {
+  background-image: linear-gradient(180deg, #020617 0%, #0b1020 100%);
+}
+
+/* Diagonal shine that sweeps across a card on hover */
+.shine {
+  background: linear-gradient(115deg,
+      transparent 30%,
+      rgba(167, 139, 250, 0.18) 50%,
+      transparent 70%);
+  transform: translateX(-120%);
+  transition: transform 0.8s ease;
+}
+
+.group:hover .shine {
+  transform: translateX(120%);
+}
