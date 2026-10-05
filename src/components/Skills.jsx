@@ -40,9 +40,7 @@ export default function Skills() {
                 }}
                 className="group relative overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/60 p-6 backdrop-blur transition-[border-color,box-shadow] duration-300 hover:border-brand-500/60 hover:shadow-[0_20px_50px_-15px_rgba(139,92,246,0.55)]"
               >
-                {/* sweeping shine */}
                 <span aria-hidden className="shine pointer-events-none absolute inset-0" />
-                {/* corner glow */}
                 <span
                   aria-hidden
                   className="pointer-events-none absolute -right-10 -top-10 h-32 w-32 rounded-full bg-brand-500/0 blur-2xl transition-colors duration-500 group-hover:bg-brand-500/30"

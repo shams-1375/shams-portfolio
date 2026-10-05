@@ -4,8 +4,7 @@ import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
 import SectionTitle from "./SectionTitle.jsx";
 import { projects } from "../data.js";
 
-// Shows the project screenshot; falls back to a themed gradient
-// if the image file is missing.
+
 function ProjectImage({ src, title }) {
   const [failed, setFailed] = useState(false);
 

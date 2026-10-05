@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { HiMenuAlt3, HiX } from "react-icons/hi";
-import { navLinks, profile } from "../data.js";
+import { navLinks } from "../data.js";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -32,12 +32,10 @@ export default function Navbar() {
   }, []);
 
   const handleMobileNavClick = (e, id) => {
-    // Close the mobile menu modal
     setOpen(false);
 
     const element = document.getElementById(id);
     if (element) {
-      // Small timeout allows the menu state to update without blocking the scroll action
       setTimeout(() => {
         element.scrollIntoView({ behavior: "smooth" });
       }, 50);
@@ -60,7 +58,6 @@ export default function Navbar() {
           <span className="text-brand-500">.</span>
         </a>
 
-        {/* Unchanged Large Screen Navigation */}
         <ul className="hidden items-center gap-2 md:flex">
           {navLinks.map((l) => (
             <li key={l.id}>
