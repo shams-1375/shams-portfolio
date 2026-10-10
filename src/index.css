@@ -6,6 +6,7 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: 80px;
 }
+
 body {
   @apply bg-slate-950 text-slate-200 antialiased;
 }
@@ -88,4 +89,36 @@ section {
 
 .group:hover .shine {
   transform: translateX(120%);
+}
+
+/* Keep the existing desktop background */
+
+/* Mobile hero background */
+@media (max-width: 640px) {
+  .bg-hero {
+    background-color: #020617;
+    background-image:
+      radial-gradient(30rem 24rem at 85% 5%,
+        rgba(124, 58, 237, 0.35),
+        transparent 60%),
+      radial-gradient(25rem 20rem at 5% 95%,
+        rgba(99, 102, 241, 0.25),
+        transparent 60%),
+      linear-gradient(rgba(148, 163, 184, 0.06) 1px,
+        transparent 1px),
+      linear-gradient(90deg,
+        rgba(148, 163, 184, 0.06) 1px,
+        transparent 1px),
+      linear-gradient(135deg,
+        #020617 0%,
+        #1e1b4b 55%,
+        #020617 100%);
+
+    background-size:
+      auto,
+      auto,
+      56px 56px,
+      56px 56px,
+      auto;
+  }
 }
